@@ -1,0 +1,3 @@
+Hello, this is a test file created using BufferedWriter in Java!
+Writing multiple lines to demonstrate.
+End of file.
