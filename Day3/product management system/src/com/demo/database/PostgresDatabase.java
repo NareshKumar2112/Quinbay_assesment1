@@ -17,7 +17,6 @@ public class PostgresDatabase {
 
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(DB_URL, USER, PASS);
-            System.out.println("Connected to database...");
         }
         catch(Exception e)
         {

@@ -15,7 +15,7 @@ public class MongoDb
     {
         MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
         mongoDatabase = mongoClient.getDatabase("shopping");
-        mongoCollection = mongoDatabase.getCollection("orders");
+        mongoCollection = mongoDatabase.getCollection("products");
     }
 
     public MongoDatabase getMongoDatabase() {

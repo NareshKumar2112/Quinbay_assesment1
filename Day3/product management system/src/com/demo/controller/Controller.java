@@ -57,6 +57,9 @@ public class Controller {
         } else if (choice == 12) {
             operator.viewProductByCategory();
         } else if (choice == 13) {
+            Shopping shopping=new Shopping();
+            shopping.view_ordersById();
+        } else if (choice == 14) {
             System.out.println("Thank you");
             System.exit(0);
 

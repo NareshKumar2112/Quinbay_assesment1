@@ -190,7 +190,6 @@ public class Operator {
 
         Thread validate_thread=new Thread(()-> {
             this.check_avaliblity=checkExistanceOfProduct(productId);
-            System.out.println(check_avaliblity+"kkh");
         }
         );
 
@@ -217,11 +216,11 @@ public class Operator {
         }
         else {
             if (new_stockValue >= 0) {
-                mongoCollection=mongodb.getMongoCollection();
-                Document filter=new Document("product_id",productId);
-                Document update=new Document("$set",new Document("product_stock",new_stockValue));
-                mongoCollection.updateOne(filter,update);
-                System.out.println("Stock is updated successfully");
+                    mongoCollection = mongodb.getMongoCollection();
+                    Document filter = new Document("product_id", productId);
+                    Document update = new Document("$set", new Document("product_stock", new_stockValue));
+                    mongoCollection.updateOne(filter, update);
+                    System.out.println("Stock is updated successfully");
             }
             else {
                 System.out.println("Invalid value");
@@ -381,7 +380,7 @@ public class Operator {
             if(document.getString("product_category").equals(category_name.toLowerCase()))
             {
                 System.out.println(document.getInteger("product_id")+" "+document.getString("product_name")+" "+document.getDouble("product_cost")
-                +" "+document.getInteger("product_stock")+" "+document.getString("seller_name"));
+                +" "+document.getInteger("product_stock")+" "+document.getString("product_seller_name"));
             }
         }
     }

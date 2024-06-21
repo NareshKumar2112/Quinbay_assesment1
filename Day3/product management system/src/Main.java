@@ -17,7 +17,7 @@ public class Main {
         {
             System.out.println("Enter 1 to add product\nEnter 2 to All view product\nEnter 3 to view particular products" +
                     "\nEnter 4 to update the stocks\nEnter 5 to update the price\nEnter 6 to update the product name\n" +"Enter 7 to update the softDelete products\n"+
-                    "Enter 8 to purchase" + "\nEnter 9 to delete the product\nEnter 10 to view shopping history\nEnter 11 to add category\nEnter 12 to view product by category\nEnter 13 to exit");
+                    "Enter 8 to purchase" + "\nEnter 9 to delete the product\nEnter 10 to view shopping history\nEnter 11 to add category\nEnter 12 to view product by category\nEnter 13 to view orders by id\nEnter 14 to exit");
 
             choice= scanner.nextInt();
             scanner.nextLine();

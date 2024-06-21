@@ -248,23 +248,42 @@ public class Shopping {
             {
                 System.out.println("order_id     total_amount     number_of_product");
                 System.out.println(resultSet.getInt("order_id")+" "+resultSet.getDouble("total_amount")+" "+resultSet.getInt("number_of_product"));
-                System.out.println("Enter y to get detailed info");
-                String cho=scanner.next();
-                if(cho.equals("y"))
-                {
-                    PreparedStatement pst2=connection.prepareStatement("select * from ordered_items where order_id=?");
-                    pst2.setInt(1,resultSet.getInt("order_id"));
-                    ResultSet rs2=pst2.executeQuery();
-                    System.out.println("product_name     product_quantity      product_percost        product_cost     supplier_name");
-                    while(rs2.next())
-                    {
-                        System.out.println(rs2.getString("product_names")+" "+rs2.getInt("product_quantity")
-                        +" "+rs2.getDouble("product_percost")+" "+rs2.getDouble("product_cost")+" "+rs2.getString("supplier_name"));
-                    }
-                }
+//                System.out.println("Enter y to get detailed info");
+//                String cho=scanner.next();
+//                if(cho.equals("y"))
+//                {
+//                    PreparedStatement pst2=connection.prepareStatement("select * from ordered_items where order_id=?");
+//                    pst2.setInt(1,resultSet.getInt("order_id"));
+//                    ResultSet rs2=pst2.executeQuery();
+//                    System.out.println("product_name     product_quantity      product_percost        product_cost     supplier_name");
+//                    while(rs2.next())
+//                    {
+//                        System.out.println(rs2.getString("product_names")+" "+rs2.getInt("product_quantity")
+//                        +" "+rs2.getDouble("product_percost")+" "+rs2.getDouble("product_cost")+" "+rs2.getString("supplier_name"));
+//                    }
+//                }
             }
         }
         catch(Exception e)
+        {
+            System.out.println("error");
+        }
+    }
+    public void view_ordersById() {
+        System.out.println("Enter the order_id to view the detailed order info");
+        int order_id=scanner.nextInt();
+        connection = postgresdatabase.getConnection();
+        try {
+            PreparedStatement pst2=connection.prepareStatement("select * from ordered_items where order_id=?");
+            pst2.setInt(1,order_id);
+            ResultSet rs2=pst2.executeQuery();
+            System.out.println("product_name     product_quantity      product_percost        product_cost   ");
+            while(rs2.next())
+            {
+                System.out.println(rs2.getString("product_names")+" "+rs2.getInt("product_quantity") +" "+rs2.getDouble("product_percost")+" "+rs2.getDouble("product_cost"));
+            }
+        }
+        catch (Exception exception)
         {
             System.out.println("error");
         }
